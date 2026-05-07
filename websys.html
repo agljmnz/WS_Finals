@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ace Baker's Secret</title>
+    <link rel="stylesheet" href="websys.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="ABS.png" />
+      <h1>Ace Baker's Secret</h1>
+      <div class="cart-icon">🛒 <span class="cart-counter">0</span></div>
+    </nav>
+
+    <div class="container">
+      <section class="product-list">
+        <h2>Products</h2>
+        <div class="products"></div>
+      </section>
+
+      <section class="cart-section">
+        <h2>Shopping Cart</h2>
+        <div class="cart">
+          <p class="empty-message">Your cart is empty.</p>
+          <div class="cart-items"></div>
+          <div class="cart-summary">
+            <p>Total: $<span class="cart-total">0.00</span></p>
+            <button class="clear-cart">Clear Cart</button>
+            <button id="checkoutBtn">Checkout</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="websys.js"></script>
+  </body>
+</html>
