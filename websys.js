@@ -1,5 +1,3 @@
-// Product data with images
-
 const productsData = [
   { id: 1, name: 'Cinnamon Roll', price: 5.00, image: 'Cinnamon rolls.png' },
   { id: 2, name: 'Cookies', price: 3.50, image: 'cookies.png' },
@@ -11,7 +9,6 @@ const productsData = [
 
 let cart = [];
 
-// DOM Elements
 const productsContainer = document.querySelector('.products');
 const cartItemsContainer = document.querySelector('.cart-items');
 const cartTotalEl = document.querySelector('.cart-total');
@@ -28,12 +25,10 @@ function loadCart() {
   }
 }
 
-// Save cart to localStorage
 function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Render products with images
 function renderProducts() {
   productsData.forEach(product => {
     const productEl = document.createElement('div');
@@ -48,7 +43,6 @@ function renderProducts() {
   });
 }
 
-// Update cart display
 function updateCart() {
   cartItemsContainer.innerHTML = '';
   if (cart.length === 0) {
@@ -89,7 +83,6 @@ function updateCart() {
   cartCounter.textContent = totalItems;
 }
 
-// Add to cart
 function addToCart(productId) {
   const product = productsData.find(p => p.id === parseInt(productId));
   const existingItem = cart.find(item => item.id === product.id);
@@ -102,14 +95,12 @@ function addToCart(productId) {
   updateCart();
 }
 
-// Remove item
 function removeFromCart(index) {
   cart.splice(index, 1);
   saveCart();
   updateCart();
 }
 
-// Change quantity
 function changeQuantity(index, delta) {
   const item = cart[index];
   item.quantity += delta;
@@ -118,14 +109,12 @@ function changeQuantity(index, delta) {
   updateCart();
 }
 
-// Clear cart
 function clearCart() {
   cart = [];
   saveCart();
   updateCart();
 }
 
-// Event Listeners
 document.querySelector('.products').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-to-cart')) {
     const id = e.target.dataset.id;
@@ -148,12 +137,10 @@ document.querySelector('.clear-cart').addEventListener('click', () => {
   clearCart();
 });
 
-// Checkout button
 document.getElementById('checkoutBtn').addEventListener('click', () => {
   alert(`You have ${cart.reduce((sum, item) => sum + item.quantity, 0)} items in your cart.`);
 });
 
-// Initialize
 loadCart();
 renderProducts();
 updateCart();
