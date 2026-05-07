@@ -15,7 +15,7 @@ h2 {
 @media (max-width: 768px) {
   h1,
   h2 {
-    font-size: 1em; /* Smaller font size for phones/tablets */
+    font-size: 1em;
   }
 }
 
